@@ -10,20 +10,22 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 
 class MainPage {
     // Definimos los elementos en un solo lugar
-    private val nameField get() = onView(withId(R.id.etName))
-    private val greetButton get() = onView(withId(R.id.btnGreet))
 
-    val greetingText get() = onView(withId(R.id.tvGreeting))
+    //Test Plan
+    private val username get() = onView(withId(R.id.username))
+    private val password get() = onView(withId(R.id.password))
+    val btnLoginTest get() = onView(withId(R.id.btnLogin))
+
+
 
     fun typeName(name: String) {
-        nameField.perform(typeText(name), closeSoftKeyboard())
+        username.perform(typeText(name), closeSoftKeyboard())
     }
-
+    fun typeName(name: String) {
+        password.perform(typeText(name), closeSoftKeyboard())
+    }
     fun clickGreet() {
-        greetButton.perform(click())
+        btnLoginTest.perform(click())
     }
 
-    fun assertPageIsVisible(){
-        nameField.check(matches(isDisplayed()))
-    }
 }
